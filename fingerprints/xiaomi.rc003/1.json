@@ -1,0 +1,40 @@
+{
+  "format_version": 1,
+  "kind": "fingerprint",
+  "id": "xiaomi.rc003",
+  "revision": 1,
+  "scan_hints": [
+    {
+      "name": "小米蓝牙语音遥控器"
+    },
+    {
+      "name": "RC003"
+    },
+    {
+      "prefix": "RC003 "
+    }
+  ],
+  "required": {
+    "report_map": {
+      "length": 86,
+      "crc32c": "6bd7daad"
+    },
+    "services": [
+      "0x1812",
+      "ab5e0001-5a21-4f05-bc7d-af01f617b664"
+    ]
+  },
+  "voice": {
+    "id": "atvv.rc003",
+    "revision": 1
+  },
+  "keys": {
+    "id": "xiaomi.rc003",
+    "revision": 1
+  },
+  "model": {
+    "id": "xiaomi.rc003",
+    "revision": 1
+  },
+  "confidence": "legacy-crc-needs-capture"
+}

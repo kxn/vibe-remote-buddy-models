@@ -1,0 +1,312 @@
+{
+  "format_version": 1,
+  "kind": "model",
+  "id": "xiaomi.rc003",
+  "revision": 1,
+  "title": "小米 Remote 2 Pro",
+  "voice": {
+    "id": "atvv.rc003",
+    "revision": 1
+  },
+  "keys": {
+    "id": "xiaomi.rc003",
+    "revision": 1
+  },
+  "buttons": [
+    {
+      "id": "b01",
+      "legacy_key": 1,
+      "semantic": "power",
+      "label": "电源",
+      "default": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "b03",
+      "legacy_key": 3,
+      "semantic": "up",
+      "label": "上",
+      "default": [
+        1,
+        0,
+        82
+      ]
+    },
+    {
+      "id": "b04",
+      "legacy_key": 4,
+      "semantic": "down",
+      "label": "下",
+      "default": [
+        1,
+        0,
+        81
+      ]
+    },
+    {
+      "id": "b05",
+      "legacy_key": 5,
+      "semantic": "left",
+      "label": "左",
+      "default": [
+        1,
+        0,
+        80
+      ]
+    },
+    {
+      "id": "b06",
+      "legacy_key": 6,
+      "semantic": "right",
+      "label": "右",
+      "default": [
+        1,
+        0,
+        79
+      ]
+    },
+    {
+      "id": "b07",
+      "legacy_key": 7,
+      "semantic": "ok",
+      "label": "确认",
+      "default": [
+        1,
+        0,
+        40
+      ]
+    },
+    {
+      "id": "b08",
+      "legacy_key": 8,
+      "semantic": "back",
+      "label": "返回",
+      "default": [
+        1,
+        0,
+        42
+      ]
+    },
+    {
+      "id": "b09",
+      "legacy_key": 9,
+      "semantic": "home",
+      "label": "主页",
+      "default": [
+        4,
+        0,
+        65534
+      ]
+    },
+    {
+      "id": "b10",
+      "legacy_key": 10,
+      "semantic": "menu",
+      "label": "菜单",
+      "default": [
+        4,
+        0,
+        65535
+      ]
+    },
+    {
+      "id": "b11",
+      "legacy_key": 11,
+      "semantic": "tv",
+      "label": "电视",
+      "default": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "b12",
+      "legacy_key": 12,
+      "semantic": "volume_up",
+      "label": "音量 +",
+      "default": [
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "b13",
+      "legacy_key": 13,
+      "semantic": "volume_down",
+      "label": "音量 −",
+      "default": [
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "b02",
+      "legacy_key": 2,
+      "semantic": "voice",
+      "label": "语音",
+      "default": [
+        5,
+        0,
+        1
+      ]
+    }
+  ],
+  "layout": {
+    "width": 176,
+    "height": 600,
+    "buttons": [
+      {
+        "x": 25,
+        "y": 6,
+        "width": 23,
+        "height": 6.75,
+        "radius": 50,
+        "fill": "transparent",
+        "color": "#4c5457",
+        "border": "#6e777b",
+        "button": "b01"
+      },
+      {
+        "x": 75,
+        "y": 6,
+        "width": 23,
+        "height": 6.75,
+        "radius": 50,
+        "fill": "transparent",
+        "color": "#4c5457",
+        "border": "#6e777b",
+        "button": "b02"
+      },
+      {
+        "x": 50,
+        "y": 18,
+        "width": 27,
+        "height": 7.9,
+        "radius": 50,
+        "fill": "transparent",
+        "color": "#d5dbdc",
+        "border": "transparent",
+        "button": "b03"
+      },
+      {
+        "x": 22,
+        "y": 26,
+        "width": 27,
+        "height": 7.9,
+        "radius": 50,
+        "fill": "transparent",
+        "color": "#d5dbdc",
+        "border": "transparent",
+        "button": "b05"
+      },
+      {
+        "x": 50,
+        "y": 26,
+        "width": 43,
+        "height": 12.6,
+        "radius": 50,
+        "fill": "#22282a",
+        "color": "#d5dbdc",
+        "border": "#101618",
+        "button": "b07"
+      },
+      {
+        "x": 78,
+        "y": 26,
+        "width": 27,
+        "height": 7.9,
+        "radius": 50,
+        "fill": "transparent",
+        "color": "#d5dbdc",
+        "border": "transparent",
+        "button": "b06"
+      },
+      {
+        "x": 50,
+        "y": 34,
+        "width": 27,
+        "height": 7.9,
+        "radius": 50,
+        "fill": "transparent",
+        "color": "#d5dbdc",
+        "border": "transparent",
+        "button": "b04"
+      },
+      {
+        "x": 25,
+        "y": 43,
+        "width": 30,
+        "height": 8.8,
+        "radius": 50,
+        "fill": "#22282a",
+        "color": "#d5dbdc",
+        "border": "transparent",
+        "button": "b08"
+      },
+      {
+        "x": 75,
+        "y": 43,
+        "width": 30,
+        "height": 8.8,
+        "radius": 50,
+        "fill": "transparent",
+        "color": "#d5dbdc",
+        "border": "transparent",
+        "button": "b12"
+      },
+      {
+        "x": 25,
+        "y": 53,
+        "width": 30,
+        "height": 8.8,
+        "radius": 50,
+        "fill": "#22282a",
+        "color": "#d5dbdc",
+        "border": "transparent",
+        "button": "b09"
+      },
+      {
+        "x": 75,
+        "y": 53,
+        "width": 30,
+        "height": 8.8,
+        "radius": 50,
+        "fill": "transparent",
+        "color": "#d5dbdc",
+        "border": "transparent",
+        "button": "b13"
+      },
+      {
+        "x": 25,
+        "y": 63,
+        "width": 30,
+        "height": 8.8,
+        "radius": 50,
+        "fill": "#22282a",
+        "color": "#d5dbdc",
+        "border": "transparent",
+        "button": "b10"
+      },
+      {
+        "x": 75,
+        "y": 63,
+        "width": 30,
+        "height": 8.8,
+        "radius": 50,
+        "fill": "#22282a",
+        "color": "#d5dbdc",
+        "border": "transparent",
+        "button": "b11"
+      }
+    ],
+    "thumbnailSymbols": true,
+    "angle": -12
+  },
+  "legacy_model_id": "xiaomi.rc003"
+}

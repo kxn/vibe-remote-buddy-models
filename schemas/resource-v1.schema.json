@@ -1,0 +1,566 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vibe Remote Buddy catalog resource v1",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "format_version": {
+          "const": 1
+        },
+        "kind": {
+          "const": "voice"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "driver": {
+          "enum": [
+            "hid-ico",
+            "atvv",
+            "xiaomi-hid-msbc"
+          ]
+        },
+        "driver_api": {
+          "const": 1
+        },
+        "legacy_family": {
+          "enum": [
+            1,
+            2,
+            3
+          ]
+        },
+        "sample_rate": {
+          "const": 16000
+        }
+      },
+      "required": [
+        "format_version",
+        "kind",
+        "id",
+        "revision",
+        "driver",
+        "driver_api",
+        "legacy_family",
+        "sample_rate"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "format_version": {
+          "const": 1
+        },
+        "kind": {
+          "const": "keys"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "encoding": {
+          "const": "hid-report-usage"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "button": {
+                "type": "string",
+                "minLength": 1
+              },
+              "report_id": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 255
+              },
+              "usage": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 65535
+              }
+            },
+            "required": [
+              "button",
+              "report_id",
+              "usage"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "voice_button": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance": {
+          "enum": [
+            "saved-key-proofs",
+            "existing-builtin-mapping"
+          ]
+        }
+      },
+      "required": [
+        "format_version",
+        "kind",
+        "id",
+        "revision",
+        "encoding",
+        "entries",
+        "voice_button",
+        "provenance"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "format_version": {
+          "const": 1
+        },
+        "kind": {
+          "const": "fingerprint"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "scan_hints": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "prefix": {
+                "type": "string",
+                "minLength": 1
+              },
+              "company": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [],
+            "additionalProperties": false,
+            "oneOf": [
+              {
+                "required": [
+                  "name"
+                ],
+                "not": {
+                  "required": [
+                    "prefix"
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "prefix"
+                ],
+                "not": {
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "required": {
+          "type": "object",
+          "properties": {
+            "report_map": {
+              "type": "object",
+              "properties": {
+                "length": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4096
+                },
+                "crc32c": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{8}$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "hex": {
+                  "type": "string",
+                  "pattern": "^(?:[0-9a-f]{2})+$"
+                }
+              },
+              "required": [
+                "length",
+                "crc32c"
+              ],
+              "additionalProperties": false
+            },
+            "pnp": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "enum": [
+                    1,
+                    2
+                  ]
+                },
+                "vendor": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "product": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "source",
+                "vendor",
+                "product"
+              ],
+              "additionalProperties": false
+            },
+            "services": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            "reports": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "type": {
+                    "enum": [
+                      1,
+                      2,
+                      3
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "report_map",
+            "services"
+          ],
+          "additionalProperties": false
+        },
+        "voice": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ],
+          "additionalProperties": false
+        },
+        "keys": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ],
+          "additionalProperties": false
+        },
+        "model": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ],
+          "additionalProperties": false
+        },
+        "confidence": {
+          "enum": [
+            "captured-map",
+            "legacy-crc-needs-capture"
+          ]
+        }
+      },
+      "required": [
+        "format_version",
+        "kind",
+        "id",
+        "revision",
+        "scan_hints",
+        "required",
+        "voice",
+        "keys",
+        "model",
+        "confidence"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "format_version": {
+          "const": 1
+        },
+        "kind": {
+          "const": "model"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "voice": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ],
+          "additionalProperties": false
+        },
+        "keys": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ],
+          "additionalProperties": false
+        },
+        "buttons": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "legacy_key": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 63
+              },
+              "semantic": {
+                "type": "string",
+                "minLength": 1
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "default": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            },
+            "required": [
+              "id",
+              "legacy_key",
+              "semantic",
+              "label",
+              "default"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "layout": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "buttons": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "button": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "cell": {
+                    "type": "number"
+                  },
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  },
+                  "width": {
+                    "type": "number"
+                  },
+                  "height": {
+                    "type": "number"
+                  },
+                  "radius": {
+                    "type": "number"
+                  },
+                  "fill": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "color": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "border": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "symbol": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "button",
+                  "x",
+                  "y",
+                  "width",
+                  "height",
+                  "radius"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "thumbnailSymbols": {
+              "type": "boolean"
+            },
+            "editorRows": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "editorColumns": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "angle": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "width",
+            "height",
+            "buttons"
+          ],
+          "additionalProperties": false
+        },
+        "legacy_model_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "format_version",
+        "kind",
+        "id",
+        "revision",
+        "title",
+        "voice",
+        "keys",
+        "buttons",
+        "layout",
+        "legacy_model_id"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "format_version": 1,
+  "kind": "voice",
+  "id": "atvv.rc003",
+  "revision": 1,
+  "driver": "atvv",
+  "driver_api": 1,
+  "legacy_family": 1,
+  "sample_rate": 16000
+}

@@ -1,0 +1,562 @@
+{
+  "format_version": 1,
+  "kind": "model",
+  "id": "cmcc.sample-28",
+  "revision": 1,
+  "title": "CMCC_Voice_Remote",
+  "voice": {
+    "id": "hid-ico.v1",
+    "revision": 1
+  },
+  "keys": {
+    "id": "cmcc.sample-28",
+    "revision": 1
+  },
+  "buttons": [
+    {
+      "id": "b01",
+      "legacy_key": 1,
+      "semantic": "power",
+      "label": "电源",
+      "default": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "b14",
+      "legacy_key": 14,
+      "semantic": "menu",
+      "label": "菜单",
+      "default": [
+        4,
+        0,
+        65535
+      ]
+    },
+    {
+      "id": "b19",
+      "legacy_key": 19,
+      "semantic": "settings",
+      "label": "设置",
+      "default": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "b03",
+      "legacy_key": 3,
+      "semantic": "up",
+      "label": "上",
+      "default": [
+        1,
+        0,
+        82
+      ]
+    },
+    {
+      "id": "b04",
+      "legacy_key": 4,
+      "semantic": "down",
+      "label": "下",
+      "default": [
+        1,
+        0,
+        81
+      ]
+    },
+    {
+      "id": "b05",
+      "legacy_key": 5,
+      "semantic": "left",
+      "label": "左",
+      "default": [
+        1,
+        0,
+        80
+      ]
+    },
+    {
+      "id": "b06",
+      "legacy_key": 6,
+      "semantic": "right",
+      "label": "右",
+      "default": [
+        1,
+        0,
+        79
+      ]
+    },
+    {
+      "id": "b07",
+      "legacy_key": 7,
+      "semantic": "ok",
+      "label": "确认",
+      "default": [
+        1,
+        0,
+        40
+      ]
+    },
+    {
+      "id": "b09",
+      "legacy_key": 9,
+      "semantic": "home",
+      "label": "主页",
+      "default": [
+        1,
+        0,
+        74
+      ]
+    },
+    {
+      "id": "b20",
+      "legacy_key": 20,
+      "semantic": "local",
+      "label": "M",
+      "default": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "b08",
+      "legacy_key": 8,
+      "semantic": "back",
+      "label": "返回",
+      "default": [
+        1,
+        0,
+        41
+      ]
+    },
+    {
+      "id": "b12",
+      "legacy_key": 12,
+      "semantic": "volume_up",
+      "label": "音量 +",
+      "default": [
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "b13",
+      "legacy_key": 13,
+      "semantic": "volume_down",
+      "label": "音量 −",
+      "default": [
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "b21",
+      "legacy_key": 21,
+      "semantic": "channel_up",
+      "label": "频道 +",
+      "default": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "b22",
+      "legacy_key": 22,
+      "semantic": "channel_down",
+      "label": "频道 −",
+      "default": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "b02",
+      "legacy_key": 2,
+      "semantic": "voice",
+      "label": "语音",
+      "default": [
+        5,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "b24",
+      "legacy_key": 24,
+      "semantic": "digit_1",
+      "label": "1",
+      "default": [
+        1,
+        0,
+        30
+      ]
+    },
+    {
+      "id": "b25",
+      "legacy_key": 25,
+      "semantic": "digit_2",
+      "label": "2",
+      "default": [
+        1,
+        0,
+        31
+      ]
+    },
+    {
+      "id": "b26",
+      "legacy_key": 26,
+      "semantic": "digit_3",
+      "label": "3",
+      "default": [
+        1,
+        0,
+        32
+      ]
+    },
+    {
+      "id": "b27",
+      "legacy_key": 27,
+      "semantic": "digit_4",
+      "label": "4",
+      "default": [
+        1,
+        0,
+        33
+      ]
+    },
+    {
+      "id": "b28",
+      "legacy_key": 28,
+      "semantic": "digit_5",
+      "label": "5",
+      "default": [
+        1,
+        0,
+        34
+      ]
+    },
+    {
+      "id": "b29",
+      "legacy_key": 29,
+      "semantic": "digit_6",
+      "label": "6",
+      "default": [
+        1,
+        0,
+        35
+      ]
+    },
+    {
+      "id": "b30",
+      "legacy_key": 30,
+      "semantic": "digit_7",
+      "label": "7",
+      "default": [
+        1,
+        0,
+        36
+      ]
+    },
+    {
+      "id": "b31",
+      "legacy_key": 31,
+      "semantic": "digit_8",
+      "label": "8",
+      "default": [
+        1,
+        0,
+        37
+      ]
+    },
+    {
+      "id": "b32",
+      "legacy_key": 32,
+      "semantic": "digit_9",
+      "label": "9",
+      "default": [
+        1,
+        0,
+        38
+      ]
+    },
+    {
+      "id": "b33",
+      "legacy_key": 33,
+      "semantic": "star",
+      "label": "*",
+      "default": [
+        1,
+        2,
+        37
+      ]
+    },
+    {
+      "id": "b23",
+      "legacy_key": 23,
+      "semantic": "digit_0",
+      "label": "0",
+      "default": [
+        1,
+        0,
+        39
+      ]
+    },
+    {
+      "id": "b34",
+      "legacy_key": 34,
+      "semantic": "hash",
+      "label": "#",
+      "default": [
+        1,
+        2,
+        32
+      ]
+    }
+  ],
+  "layout": {
+    "width": 150,
+    "height": 500,
+    "buttons": [
+      {
+        "x": 82,
+        "y": 10.583333333333334,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b01"
+      },
+      {
+        "x": 18,
+        "y": 17.75,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b14"
+      },
+      {
+        "x": 82,
+        "y": 17.75,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b19"
+      },
+      {
+        "x": 50,
+        "y": 24.916666666666664,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b03"
+      },
+      {
+        "x": 18,
+        "y": 32.083333333333336,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b05"
+      },
+      {
+        "x": 50,
+        "y": 32.083333333333336,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b07"
+      },
+      {
+        "x": 82,
+        "y": 32.083333333333336,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b06"
+      },
+      {
+        "x": 50,
+        "y": 39.25,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b04"
+      },
+      {
+        "x": 18,
+        "y": 46.41666666666667,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b09"
+      },
+      {
+        "x": 50,
+        "y": 46.41666666666667,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b20"
+      },
+      {
+        "x": 82,
+        "y": 46.41666666666667,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b08"
+      },
+      {
+        "x": 18,
+        "y": 53.58333333333333,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b12"
+      },
+      {
+        "x": 50,
+        "y": 53.58333333333333,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b02"
+      },
+      {
+        "x": 82,
+        "y": 53.58333333333333,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "symbol": "CH+",
+        "button": "b21"
+      },
+      {
+        "x": 18,
+        "y": 60.75,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b13"
+      },
+      {
+        "x": 82,
+        "y": 60.75,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "symbol": "CH−",
+        "button": "b22"
+      },
+      {
+        "x": 18,
+        "y": 67.91666666666666,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b24"
+      },
+      {
+        "x": 50,
+        "y": 67.91666666666666,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b25"
+      },
+      {
+        "x": 82,
+        "y": 67.91666666666666,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b26"
+      },
+      {
+        "x": 18,
+        "y": 75.08333333333334,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b27"
+      },
+      {
+        "x": 50,
+        "y": 75.08333333333334,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b28"
+      },
+      {
+        "x": 82,
+        "y": 75.08333333333334,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b29"
+      },
+      {
+        "x": 18,
+        "y": 82.25,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b30"
+      },
+      {
+        "x": 50,
+        "y": 82.25,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b31"
+      },
+      {
+        "x": 82,
+        "y": 82.25,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b32"
+      },
+      {
+        "x": 18,
+        "y": 89.41666666666666,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b33"
+      },
+      {
+        "x": 50,
+        "y": 89.41666666666666,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b23"
+      },
+      {
+        "x": 82,
+        "y": 89.41666666666666,
+        "width": 24,
+        "height": 5.59,
+        "radius": 50,
+        "button": "b34"
+      }
+    ],
+    "thumbnailSymbols": true,
+    "angle": 11,
+    "editorColumns": 3,
+    "editorRows": 12
+  },
+  "legacy_model_id": "remote.mu80hkyx"
+}
