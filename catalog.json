@@ -8,120 +8,120 @@
       "id": "atvv.rc003",
       "revision": 1,
       "path": "voices/atvv.rc003/1.json",
-      "sha256": "8d28d46ad407f712f762c3cfea022abb665d7e32db0218a2b687e8567ddd3a82",
-      "size": 179
+      "sha256": "28b9cd67eef7d465383bbb10258f45d7c7528d3ac81a695e7b36e0de033df2c6",
+      "size": 169
     },
     {
       "kind": "voice",
       "id": "hid-ico.v1",
       "revision": 1,
       "path": "voices/hid-ico.v1/1.json",
-      "sha256": "23ca1630db25449bb2d9d3d3ba13e56083c39f5cc6c3d17a34f10ee002d6880a",
-      "size": 182
+      "sha256": "168c36309a9f4be75365efb8ab367551f77263b5408f6700c9b339273adcfce7",
+      "size": 172
     },
     {
       "kind": "voice",
       "id": "xiaomi.hid-msbc",
       "revision": 1,
       "path": "voices/xiaomi.hid-msbc/1.json",
-      "sha256": "f4a71334fabd60c56280abd29251053ef2357aad127f64d4fa70f317a0dca0d9",
-      "size": 195
+      "sha256": "e3fc6b903cbf8eeaf88befb5bcb40f2b98ac68d72df937368436b43a14967c61",
+      "size": 185
     },
     {
       "kind": "keys",
       "id": "cmcc.sample-28",
       "revision": 1,
       "path": "keys/cmcc.sample-28/1.json",
-      "sha256": "201e036ca03a6efd34a1b2bedb8dd99c54c859982e6c8e0aa8982a1c0770df25",
-      "size": 2408
+      "sha256": "103fb1fd48f4728afb47297effb4ff613df025df6fbaa204fd9e40dfa3f005f2",
+      "size": 2262
     },
     {
       "kind": "keys",
       "id": "unicom.sample-28",
       "revision": 1,
       "path": "keys/unicom.sample-28/1.json",
-      "sha256": "d2c36ddae2cacf21d2411ed303cd0b4455bbf4f4b5c418f870354edf092b6b51",
-      "size": 2422
+      "sha256": "263f3493891017d7b1b05f8c8cdc17711f364bf711cba7f8f6bea6f126f4ce71",
+      "size": 2276
     },
     {
       "kind": "keys",
       "id": "xiaomi.legacy-32ba",
       "revision": 1,
       "path": "keys/xiaomi.legacy-32ba/1.json",
-      "sha256": "b68b442c5a56948608b5b61c4d9257c5b90dd557bd50d76f682f49409733d706",
-      "size": 1112
+      "sha256": "da05b7136fb3f442fc15c378269c976abf28bc5a6235a38349890e42e7f424a5",
+      "size": 1046
     },
     {
       "kind": "keys",
       "id": "xiaomi.rc003",
       "revision": 1,
       "path": "keys/xiaomi.rc003/1.json",
-      "sha256": "c33def90324fc0c059abfe1b703e2d7c70cc47c9e206906252088de0a733f3bc",
-      "size": 1195
+      "sha256": "ff4d1b52c6b8573bfa6e4121b3ff8f35dc7cc0d2d0600b601c249b46254d688e",
+      "size": 1124
     },
     {
       "kind": "fingerprint",
       "id": "cmcc.sample-28",
       "revision": 1,
       "path": "fingerprints/cmcc.sample-28/1.json",
-      "sha256": "f2083932b0fefcf59a796db2e6f7ceee15947c096957b13f125a8729e8c3c27e",
-      "size": 1671
+      "sha256": "9a2b08a416f7fc0eeab66baf09e1acec1246fec9a78b83f827617fff1ff11dda",
+      "size": 1591
     },
     {
       "kind": "fingerprint",
       "id": "unicom.sample-28",
       "revision": 1,
       "path": "fingerprints/unicom.sample-28/1.json",
-      "sha256": "772e694d9d9542990a1393568818b66bb9df31db2b33d9ab9b089a4518f30ecf",
-      "size": 1021
+      "sha256": "a2f9d12909e7eacb3c9e2ced8abdda68fdfc6fecc8e37bcc6ae7bf1926e58e03",
+      "size": 985
     },
     {
       "kind": "fingerprint",
       "id": "xiaomi.legacy-32ba",
       "revision": 1,
       "path": "fingerprints/xiaomi.legacy-32ba/1.json",
-      "sha256": "7eeafcda864fc4a1c00b807c44bf274de2efc19c5b185ed3c5fd1cec0f0c9ee8",
-      "size": 2761
+      "sha256": "63eda83a77af1dd3033e603c50ab6ab34b6e86556e77dac1c3642a0b5a5ab41e",
+      "size": 2608
     },
     {
       "kind": "fingerprint",
       "id": "xiaomi.rc003",
       "revision": 1,
       "path": "fingerprints/xiaomi.rc003/1.json",
-      "sha256": "78fed2d762042f2f7b5ba798d649aff3cc67f176c358a64f2fba5243a4207c87",
-      "size": 691
+      "sha256": "a95ad781dbf206408e88227860525767a965b63419d3bb99d7820a3a6b22ce4a",
+      "size": 651
     },
     {
       "kind": "model",
       "id": "cmcc.sample-28",
       "revision": 1,
       "path": "models/cmcc.sample-28/1.json",
-      "sha256": "15549a507239212e4cbc2c520d09b2d204f852072dd048afad900ec91e69a4be",
-      "size": 10049
+      "sha256": "3830aade54cb05baee74936e63fdf3f9e8c647b8f586a70ef51e09c916c31d30",
+      "size": 9487
     },
     {
       "kind": "model",
       "id": "unicom.sample-28",
       "revision": 1,
       "path": "models/unicom.sample-28/1.json",
-      "sha256": "c0a22f40eccf366793f4a5349915ff4d64d8bda7bcfc37ed05ff3f07396cc0c6",
-      "size": 10014
+      "sha256": "26e6cea592d8bdffb0523488929b260c78dc6f8846a7a54867d297a2b2c45967",
+      "size": 9454
     },
     {
       "kind": "model",
       "id": "xiaomi.legacy-32ba",
       "revision": 1,
       "path": "models/xiaomi.legacy-32ba/1.json",
-      "sha256": "7897fecf711fc1d332ccbbcf4179781359444a6d6ef485d3d55fb8334a884221",
-      "size": 5345
+      "sha256": "b22f3d06d2afe8024cfa3676ce683227de9d15074c6e979edfeea1b96489f4e0",
+      "size": 5055
     },
     {
       "kind": "model",
       "id": "xiaomi.rc003",
       "revision": 1,
       "path": "models/xiaomi.rc003/1.json",
-      "sha256": "f297186010cb70c69bb9a469fe4fb1906fa0ec04e86ff80226dd7a47ef41cf98",
-      "size": 5899
+      "sha256": "0dc88c1a9984cc39f9b4f6c8e6131eff1737598e814a5d3366db21888a796104",
+      "size": 5587
     }
   ]
 }

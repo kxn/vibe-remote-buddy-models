@@ -22,6 +22,7 @@ def validate(write=False):
     for folder, kind in [('voices','voice'),('keys','keys'),('fingerprints','fingerprint'),('models','model')]:
         for path in sorted((ROOT / folder).glob('*/*.json')):
             data = path.read_bytes()
+            assert b'\r' not in data, 'Resource files must use LF line endings'
             item = json.loads(data)
             errors = list(check.iter_errors(item))
             if errors:
