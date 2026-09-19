@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "catalog_version": "0.1.0",
+  "catalog_version": "0.1.1",
   "minimum_catalog_api": 1,
   "resources": [
     {
@@ -90,6 +90,14 @@
       "path": "fingerprints/xiaomi.rc003/1.json",
       "sha256": "a95ad781dbf206408e88227860525767a965b63419d3bb99d7820a3a6b22ce4a",
       "size": 651
+    },
+    {
+      "kind": "fingerprint",
+      "id": "xiaomi.rc003",
+      "revision": 2,
+      "path": "fingerprints/xiaomi.rc003/2.json",
+      "sha256": "bd159bf9965c973379b4d5abfc98134958141df2d2182aec1bfb6b0342ae4d74",
+      "size": 1351
     },
     {
       "kind": "model",
