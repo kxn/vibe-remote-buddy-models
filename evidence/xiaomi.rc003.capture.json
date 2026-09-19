@@ -1,0 +1,73 @@
+{
+  "evidence_version": 1,
+  "captured_at": "2026-09-19T22:47:47+0800",
+  "firmware": "buddy-0.9.2",
+  "method": "bound-production-connection-read-only",
+  "report_map": {
+    "length": 86,
+    "crc32c": "6bd7daad",
+    "sha256": "49011aec53ed525eafe37620ad2d2fa890e645aabc93e2344ea02abcca6aa144",
+    "hex": "05010906a10105070906a101850195037510150025fe190029fe8100c00600ff0900a101850675089578150025ff190029ff8100850775089578150025ff190029ff8100850875089578150025ff190029ff8100c0c0"
+  },
+  "reports": [
+    {
+      "report_id": 1,
+      "report_type": 1,
+      "handle": 100,
+      "properties": 26
+    },
+    {
+      "report_id": 2,
+      "report_type": 2,
+      "handle": 104,
+      "properties": 14
+    },
+    {
+      "report_id": 3,
+      "report_type": 1,
+      "handle": 107,
+      "properties": 26
+    },
+    {
+      "report_id": 4,
+      "report_type": 3,
+      "handle": 111,
+      "properties": 10
+    },
+    {
+      "report_id": 5,
+      "report_type": 3,
+      "handle": 114,
+      "properties": 26
+    },
+    {
+      "report_id": 6,
+      "report_type": 3,
+      "handle": 118,
+      "properties": 26
+    },
+    {
+      "report_id": 7,
+      "report_type": 3,
+      "handle": 122,
+      "properties": 26
+    },
+    {
+      "report_id": 8,
+      "report_type": 3,
+      "handle": 126,
+      "properties": 26
+    }
+  ],
+  "atvv": {
+    "atvv": true,
+    "atvv_tx": 770,
+    "atvv_audio": 772,
+    "atvv_control": 775
+  },
+  "not_collected": [
+    "pnp",
+    "model_number",
+    "individual_key_presses"
+  ]
+}

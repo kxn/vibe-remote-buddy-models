@@ -4,7 +4,8 @@
 
 - Report Map：86 字节，CRC32C `6bd7daad`。
 - SHA256：`49011aec53ed525eafe37620ad2d2fa890e645aabc93e2344ea02abcca6aa144`。
-- 完整原始字节见 `fingerprints/xiaomi.rc003/2.json`。
+- 完整原始字节见 [指纹修订版2](../fingerprints/xiaomi.rc003/2.json)。
+- 脱敏采集记录（含此次连接的报告句柄和属性）见 [capture.json](xiaomi.rc003.capture.json)。
 - 8 个 Report Reference：1/input、2/output、3/input、4/feature、5/feature、6/feature、7/feature、8/feature。
 - ATVV 已实际发现：命令、音频和控制三个通道均存在。
 

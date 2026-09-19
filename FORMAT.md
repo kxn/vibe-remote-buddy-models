@@ -4,7 +4,7 @@
 
 - `format_version`：解析契约主版本，不支持的版本必须拒绝，不能猜字段。
 - `revision`：某个稳定资源ID的正整数修订号。已发布的 `<id>/1.json` 不修改，更新新增 `2.json`；引用用 `{id, revision}`，禁止隐式latest。
-- `catalog_version`：机型库发布的SemVer；仅修正说明patch、新增机型minor、不兼容格式major。首版0.1.0。
+- `catalog_version`：机型库发布的SemVer；修正说明或补全既有机型证据patch、新增机型minor、不兼容格式major。首版0.1.0。
 - `driver_api`：固件对应driver的能力版本，不能用固件显示版本代替能力检查。
 - `minimum_catalog_api`：未来应用目录加载器的最低API版本。目前应用未实现API1，不声称兼容。
 
@@ -16,7 +16,7 @@
 `required` 内所有字段须满足：Map长度/CRC、存在时的完整SHA256、PnP source/vendor/product、服务集合、report ID/type集合。服务和report集合表示必需的子集，特征handle不进入指纹。
 缺失实读字段属于未确认，不得当通过；多条指纹可以指向同一配置。不同配置都通过时不能按文件顺序选，应让用户选择或执行区分键验证。
 
-`captured-map`必须附hex、sha256，校验器验证真实摘要与CRC32C。RC003初始记录显式标记 `legacy-crc-needs-capture`，不能被加载器当作强指纹自动确认；补采后发布新revision，不伪造摘要。CRC32C采用Castagnoli、初始/最终异或ffffffff。
+`captured-map`必须附hex、sha256，校验器验证真实摘要与CRC32C。RC003初始记录显式标记 `legacy-crc-needs-capture`，不能被加载器当作强指纹自动确认；完整Map已在 revision 2 补采并校验；旧 revision 1 保留，不能提升其证据等级。CRC32C采用Castagnoli、初始/最终异或ffffffff。
 
 ## 按钮及默认动作
 
