@@ -1,0 +1,171 @@
+{
+  "type": "object",
+  "properties": {
+    "format_version": {
+      "const": 1
+    },
+    "device_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "model_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "buttons": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "action": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "none"
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "keyboard"
+                  },
+                  "modifiers": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "usage": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 223
+                  }
+                },
+                "required": [
+                  "type",
+                  "modifiers",
+                  "usage"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "voice-shortcut"
+                  },
+                  "modifiers": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "usage": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 223
+                  }
+                },
+                "required": [
+                  "type",
+                  "modifiers",
+                  "usage"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "media"
+                  },
+                  "command": {
+                    "enum": [
+                      "play-pause",
+                      "next",
+                      "mute",
+                      "volume-up",
+                      "volume-down",
+                      "previous",
+                      "stop",
+                      "browser-home"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "command"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "app"
+                  },
+                  "command": {
+                    "enum": [
+                      "task-view",
+                      "window-picker"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "command"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "voice-preset"
+                  },
+                  "preset": {
+                    "enum": [
+                      "doubao",
+                      "wechat",
+                      "video-meeting"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "preset"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "required": [],
+        "additionalProperties": false,
+        "minProperties": 1
+      }
+    }
+  },
+  "required": [
+    "format_version",
+    "device_id",
+    "model_id",
+    "buttons"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local user override (never stored in public catalog)"
+}

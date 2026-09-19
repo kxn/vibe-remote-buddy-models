@@ -1,0 +1,667 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Remote catalog resource v2",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "format_version": {
+          "const": 2
+        },
+        "kind": {
+          "const": "protocol"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "driver": {
+          "enum": [
+            "hid-ico",
+            "atvv",
+            "xiaomi-hid-msbc"
+          ]
+        },
+        "driver_api": {
+          "const": 1
+        },
+        "sample_rate": {
+          "const": 16000
+        }
+      },
+      "required": [
+        "format_version",
+        "kind",
+        "id",
+        "revision",
+        "driver",
+        "driver_api",
+        "sample_rate"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "format_version": {
+          "const": 2
+        },
+        "kind": {
+          "const": "keymap"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "encoding": {
+          "const": "hid-report-usage"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "button": {
+                "type": "string",
+                "minLength": 1
+              },
+              "report_id": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 255
+              },
+              "usage": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 65535
+              }
+            },
+            "required": [
+              "button",
+              "report_id",
+              "usage"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "voice_button": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance": {
+          "enum": [
+            "saved-key-proofs",
+            "existing-builtin-mapping"
+          ]
+        }
+      },
+      "required": [
+        "format_version",
+        "kind",
+        "id",
+        "revision",
+        "encoding",
+        "entries",
+        "voice_button",
+        "provenance"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "format_version": {
+          "const": 2
+        },
+        "kind": {
+          "const": "layout"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "geometry": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "buttons": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "button": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "cell": {
+                    "type": "number"
+                  },
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  },
+                  "width": {
+                    "type": "number"
+                  },
+                  "height": {
+                    "type": "number"
+                  },
+                  "radius": {
+                    "type": "number"
+                  },
+                  "fill": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "color": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "border": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "symbol": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "button",
+                  "x",
+                  "y",
+                  "width",
+                  "height",
+                  "radius"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "thumbnailSymbols": {
+              "type": "boolean"
+            },
+            "editorRows": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "editorColumns": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "angle": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "width",
+            "height",
+            "buttons"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "format_version",
+        "kind",
+        "id",
+        "revision",
+        "geometry"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "format_version": {
+          "const": 2
+        },
+        "kind": {
+          "const": "defaults"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "buttons": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              },
+              "action": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "const": "none"
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "const": "keyboard"
+                      },
+                      "modifiers": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 255
+                      },
+                      "usage": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 223
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "modifiers",
+                      "usage"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "const": "voice-shortcut"
+                      },
+                      "modifiers": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 255
+                      },
+                      "usage": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 223
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "modifiers",
+                      "usage"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "const": "media"
+                      },
+                      "command": {
+                        "enum": [
+                          "play-pause",
+                          "next",
+                          "mute",
+                          "volume-up",
+                          "volume-down",
+                          "previous",
+                          "stop",
+                          "browser-home"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "command"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "const": "app"
+                      },
+                      "command": {
+                        "enum": [
+                          "task-view",
+                          "window-picker"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "command"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "const": "voice-preset"
+                      },
+                      "preset": {
+                        "enum": [
+                          "doubao",
+                          "wechat",
+                          "video-meeting"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "preset"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": [
+              "label",
+              "action"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "format_version",
+        "kind",
+        "id",
+        "revision",
+        "buttons"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "format_version": {
+          "const": 2
+        },
+        "kind": {
+          "const": "model"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "protocol": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "keymap": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "layout": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "defaults": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "buttons": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "semantic": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "semantic"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "format_version",
+        "kind",
+        "id",
+        "revision",
+        "title",
+        "protocol",
+        "keymap",
+        "layout",
+        "defaults",
+        "buttons"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "format_version": {
+          "const": 2
+        },
+        "kind": {
+          "const": "fingerprint"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "scan_hints": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "prefix": {
+                "type": "string",
+                "minLength": 1
+              },
+              "company": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [],
+            "additionalProperties": false,
+            "oneOf": [
+              {
+                "required": [
+                  "name"
+                ],
+                "not": {
+                  "required": [
+                    "prefix"
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "prefix"
+                ],
+                "not": {
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "required": {
+          "type": "object",
+          "properties": {
+            "report_map": {
+              "type": "object",
+              "properties": {
+                "length": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4096
+                },
+                "crc32c": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{8}$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "hex": {
+                  "type": "string",
+                  "pattern": "^(?:[0-9a-f]{2})+$"
+                }
+              },
+              "required": [
+                "length",
+                "crc32c",
+                "hex",
+                "sha256"
+              ],
+              "additionalProperties": false
+            },
+            "pnp": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "enum": [
+                    1,
+                    2
+                  ]
+                },
+                "vendor": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "product": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "source",
+                "vendor",
+                "product"
+              ],
+              "additionalProperties": false
+            },
+            "services": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            "reports": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "type": {
+                    "enum": [
+                      1,
+                      2,
+                      3
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "report_map",
+            "services"
+          ],
+          "additionalProperties": false
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "confidence": {
+          "const": "captured-map"
+        }
+      },
+      "required": [
+        "format_version",
+        "kind",
+        "id",
+        "revision",
+        "scan_hints",
+        "required",
+        "model",
+        "confidence"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

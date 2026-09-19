@@ -14,14 +14,9 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r requirements.txt
       - run: python tools/validate.py
-      - name: Preserve existing resource revisions
+      - run: python -m unittest discover -s tests -v
+      - name: Check revision increments
         if: github.event_name == 'pull_request'
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
-        run: |
-          changes=$(git diff --name-only --diff-filter=MD "$BASE_SHA" HEAD -- voices/ keys/ fingerprints/ models/)
-          if [ -n "$changes" ]; then
-            echo "Add a new resource revision instead of changing/removing an existing one:"
-            echo "$changes"
-            exit 1
-          fi
+        run: python tools/validate.py --base "$BASE_SHA"
