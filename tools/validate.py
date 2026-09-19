@@ -54,6 +54,13 @@ def validate_resources(resources):
         geometry = resources['layout', item['layout']]['geometry']
         buttons = {b['id'] for b in item['buttons']}
         assert len(buttons) == len(item['buttons'])
+        wire_ids = []
+        for button in item['buttons']:
+            number = int(button['id'][1:]) if re.fullmatch(r'b[0-9]{2}', button['id']) else button.get('wire_id')
+            assert isinstance(number, int) and 1 <= number <= 63, 'Missing stable wire_id'
+            assert (number == 2) == (button['semantic'] == 'voice'), 'Voice wire ID must be 2'
+            wire_ids.append(number)
+        assert len(wire_ids) == len(set(wire_ids)), 'Duplicate wire_id' 
         assert {x['button'] for x in keys['entries']} | {keys['voice_button']} == buttons
         assert set(defaults) == buttons
         assert len(geometry['buttons']) == len(buttons)

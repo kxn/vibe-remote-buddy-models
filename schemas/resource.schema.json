@@ -459,6 +459,11 @@
               "semantic": {
                 "type": "string",
                 "minLength": 1
+              },
+              "wire_id": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 63
               }
             },
             "required": [

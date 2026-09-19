@@ -26,7 +26,7 @@
 - `schemas/`：公共资源和本地 override 的独立格式。
 - `tools/resolve.py`：识别、覆盖合并的可执行参考契约。
 
-**当前桌面应用尚未接入格式2的加载、同步与 override 存储。** 不可直接覆盖旧版应用 resources/remotes；本次替换的是配置库及其设计契约，既有接收器设置不变。
+桌面应用通过独立机型库入口下载此库，验证后同步至支持 catalog API 2 的接收器（固件 0.10.0 起）。发布包自带离线快照。旧版 resources/remotes 是本地适配资源目录，不要把此库直接覆盖进去。已绑定遥控器使用自己的配置快照，更新库不会改变个人按键设置。
 
 ```sh
 python -m pip install -r requirements.txt
