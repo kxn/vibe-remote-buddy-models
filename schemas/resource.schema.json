@@ -472,6 +472,21 @@
             ],
             "additionalProperties": false
           }
+        },
+        "onboarding": {
+          "type": "object",
+          "properties": {
+            "keyConfirmation": {
+              "enum": [
+                "required",
+                "skip"
+              ]
+            }
+          },
+          "required": [
+            "keyConfirmation"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
@@ -602,8 +617,7 @@
               },
               "required": [
                 "source",
-                "vendor",
-                "product"
+                "vendor"
               ],
               "additionalProperties": false
             },
