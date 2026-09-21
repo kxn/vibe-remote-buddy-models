@@ -17,9 +17,9 @@ class Contract(unittest.TestCase):
     def test_all_resources(self):
         validate_resources(self.resources)
 
-    def test_shared_geometry_but_distinct_keymaps(self):
+    def test_shared_protocol_but_independent_appearance_and_keymaps(self):
         a, b = [self.resources['model', x] for x in ('unicom.sample-28', 'cmcc.sample-28')]
-        self.assertEqual(a['layout'], b['layout'])
+        self.assertNotEqual(a['layout'], b['layout'])
         self.assertEqual(a['protocol'], b['protocol'])
         self.assertNotEqual(a['keymap'], b['keymap'])
 
@@ -79,12 +79,16 @@ class Contract(unittest.TestCase):
         r['report_map_hex'] = r.pop('report_map')['hex']
         return r
 
-    def test_actual_fingerprints_identify_unique_samples(self):
+    def test_actual_fingerprints_preserve_indistinguishable_variants(self):
         fps = [r for (k, _), r in self.resources.items() if k == 'fingerprint']
         for fp in fps:
             result = identify(fps, self.evidence(fp))
-            self.assertEqual(result['status'], 'matched')
-            self.assertEqual(result['matches'], [fp['model']])
+            if fp['model'] in ('remote.muawdc1x', 'remote.mubbvfjx'):
+                self.assertEqual(result['status'], 'ambiguous')
+                self.assertEqual(result['matches'], ['remote.muawdc1x', 'remote.mubbvfjx'])
+            else:
+                self.assertEqual(result['status'], 'matched')
+                self.assertEqual(result['matches'], [fp['model']])
 
     def test_names_do_not_identify_or_reject(self):
         fp = self.resources['fingerprint', 'xiaomi.rc003']

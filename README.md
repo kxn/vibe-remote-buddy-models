@@ -1,6 +1,6 @@
 # Vibe Remote Buddy 机型库
 
-机型默认配置与实测识别资料。库版本 **0.2.1**，格式 **2**。
+机型默认配置与实测识别资料。库版本 **0.2.3**，格式 **2**。
 
 每个资源只有一个当前文件，修改原文件并递增 revision；历史由 Git 保存，不堆积版本目录。公共库不保存个人 override、设备地址、绑定、录音或固件。
 
@@ -13,7 +13,9 @@
 | 小米 Remote 2 Pro / RC003 | [remote-2-pro-rc003.json](models/xiaomi/remote-2-pro-rc003.json) | 完整 Map、8个报告引用、ATVV；键表来自内置实现 |
 | 旧款小米2717:32BA样本 | [legacy-2717-32ba.json](models/xiaomi/legacy-2717-32ba.json) | 完整 Map、保存的逐键验证 |
 
-这些名称不宣称覆盖整个品牌。联通和移动共用 ICO 协议及三列28键布局，但实测普通键16个相同、11个不同，因此分别保存键表与默认配置。RC003 [补采记录](evidence/xiaomi.rc003.md)保留来源与未采项目。
+这些名称不宣称覆盖整个品牌。联通和移动共用 ICO 协议；28键样本分别保存用户调整的外观布局，实测普通键16个相同、11个不同，因此分别保存键表与默认配置。RC003 [补采记录](evidence/xiaomi.rc003.md)保留来源与未采项目。
+
+新增的 [YYYKQ 17键](models/operators/yyykq-17-key.json) 与 [移动16键](models/operators/cmcc-16-key.json) 来自完整本机适配记录，沿用原机型 ID。两者完整 Report Map 与报告引用相同，普通键仅差静音键；不能仅凭 Map 判断是哪种外形。保留两个布局候选与逐键确认要求，名称仅作搜索线索。详见[提取记录](evidence/operator-layout-extraction.md)。
 
 ## 目录
 
