@@ -211,6 +211,50 @@
             },
             "angle": {
               "type": "number"
+            },
+            "appearance": {
+              "type": "object",
+              "properties": {
+                "version": {
+                  "const": 1
+                },
+                "color": {
+                  "enum": [
+                    "black",
+                    "silver",
+                    "white"
+                  ]
+                },
+                "ratio": {
+                  "type": "number",
+                  "minimum": 0.18,
+                  "maximum": 0.5
+                },
+                "radius": {
+                  "type": "number",
+                  "minimum": 0.04,
+                  "maximum": 0.45
+                },
+                "top": {
+                  "type": "number",
+                  "minimum": 0.04,
+                  "maximum": 0.3
+                },
+                "bottom": {
+                  "type": "number",
+                  "minimum": 0.04,
+                  "maximum": 0.5
+                }
+              },
+              "required": [
+                "version",
+                "color",
+                "ratio",
+                "radius",
+                "top",
+                "bottom"
+              ],
+              "additionalProperties": false
             }
           },
           "required": [

@@ -37,6 +37,9 @@ def load(root=ROOT):
 
 def validate_resources(resources):
     for (kind, _), item in resources.items():
+        if kind == 'layout' and 'appearance' in item['geometry']:
+            a = item['geometry']['appearance']
+            assert a['top'] + a['bottom'] <= .7, 'Appearance leaves too little key area'
         if kind == 'keymap':
             inputs = [(x['report_id'], x['usage']) for x in item['entries']]
             assert len(inputs) == len(set(inputs)), 'Duplicate raw input'
