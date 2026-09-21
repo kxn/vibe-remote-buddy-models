@@ -23,6 +23,15 @@ class Contract(unittest.TestCase):
         self.assertEqual(a['protocol'], b['protocol'])
         self.assertNotEqual(a['keymap'], b['keymap'])
 
+    def test_captured_voice_inputs_survive_migration(self):
+        for keymap in ('xiaomi.rc003', 'xiaomi.legacy-32ba'):
+            entries = self.resources['keymap', keymap]['entries']
+            self.assertIn(dict(button='b02', report_id=1, usage=62), entries)
+        for keymap in ('unicom.sample-28', 'cmcc.sample-28'):
+            keys = self.resources['keymap', keymap]
+            self.assertEqual(len(keys['entries']), 27)
+            self.assertFalse(any(e['button'] == keys['voice_button'] for e in keys['entries']))
+
     def test_none_is_explicit_override(self):
         self.override['buttons']['b03'] = {'action': {'type': 'none'}}
         actual = effective(self.model, self.defaults, self.override, 'local-device-a')
