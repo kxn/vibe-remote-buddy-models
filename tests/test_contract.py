@@ -14,6 +14,18 @@ class Contract(unittest.TestCase):
         self.defaults = self.resources['defaults', self.model['defaults']]
         self.override = dict(format_version=1, device_id='local-device-a', model_id='xiaomi.rc003', buttons={})
 
+    def test_navigation_defaults(self):
+        expected = {'back': dict(type='keyboard', modifiers=0, usage=42),
+                    'home': dict(type='app', command='task-view'),
+                    'menu': dict(type='app', command='window-picker')}
+        for (kind, model_id), model in self.resources.items():
+            if kind != 'model': continue
+            defaults = self.resources['defaults', model['defaults']]['buttons']
+            for button in model['buttons']:
+                if button['semantic'] in expected:
+                    self.assertEqual(defaults[button['id']]['action'], expected[button['semantic']],
+                                     (model_id, button['id']))
+
     def test_all_resources(self):
         validate_resources(self.resources)
 
