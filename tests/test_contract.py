@@ -26,6 +26,16 @@ class Contract(unittest.TestCase):
                     self.assertEqual(defaults[button['id']]['action'], expected[button['semantic']],
                                      (model_id, button['id']))
 
+    def test_same_named_defaults_agree(self):
+        by_name = {}
+        for (kind, model_id), item in self.resources.items():
+            if kind != 'defaults': continue
+            for button in item['buttons'].values():
+                label, action = button['label'], button['action']
+                if label in by_name:
+                    self.assertEqual(action, by_name[label], (model_id, label))
+                else: by_name[label] = action
+
     def test_all_resources(self):
         validate_resources(self.resources)
 
